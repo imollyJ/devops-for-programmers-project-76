@@ -14,21 +14,39 @@
 - name: Deploy Redmine application
   hosts: all
   become: true
+
+  vars_files:
+    - group_vars/webservers/vars.yml
+    - group_vars/webservers/vault.yml
+
   tasks:
+    - name: Ensure Redmine directory exists
+      file:
+        path: "/home/{{ ansible_user }}/redmine"
+        state: directory
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+        mode: '0755'
+
     - name: Create .env file from template
       template:
-        src: redmine.env.j2
-        dest: .env
+        src: templates/redmine.env.j2
+        dest: /home/{{ ansible_user}}/redmine/.env
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+        mode: '0600'
+
     - name: Pull redmine Docker image
       docker_image:
         name: redmine
         source: pull
+
     - name: Run Redmine container
       docker_container:
         name: redmine
         image: redmine
+        restart_policy: always
         ports:
           - "3000:3000"
-        env_file: .env
+        env_file: "/home/{{ ansible_user }}/redmine/.env"
         state: started
-

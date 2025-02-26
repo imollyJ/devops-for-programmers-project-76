@@ -1,0 +1,5 @@
+redmine_db_host: "rc1a-dmhnykdtabp6rrzj.mdb.yandexcloud.net"
+redmine_db_user: "redmine_user"
+redmine_db_password: "{{ vault_redmine_db_password }}"
+redmine_db_name: "redmine_db"
+redmine_db_port: "6432"
