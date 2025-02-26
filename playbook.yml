@@ -1,0 +1,34 @@
+- name: Prepare servers for deployment
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Install dependencies via Galaxy roles
+      import_role:
+        name: geerlingguy.pip
+    - name: Install docker pip module
+      pip:
+        name: docker
+        state: present
+
+- name: Deploy Redmine application
+  hosts: all
+  become: true
+  tasks:
+    - name: Create .env file from template
+      template:
+        src: redmine.env.j2
+        dest: .env
+    - name: Pull redmine Docker image
+      docker_image:
+        name: redmine
+        source: pull
+    - name: Run Redmine container
+      docker_container:
+        name: redmine
+        image: redmine
+        ports:
+          - "3000:3000"
+        env_file: .env
+        state: started
+
