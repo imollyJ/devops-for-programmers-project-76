@@ -50,3 +50,29 @@
           - "3000:3000"
         env_file: "/home/{{ ansible_user }}/redmine/.env"
         state: started
+
+- name: Install and start DataDog Agent
+  hosts: webservers
+  become: yes
+  roles:
+    - { role: datadog.datadog, become: yes }
+  vars:
+    datadog_api_key: "{{ datadog_api_key }}"
+    datadog_config:
+      logs_enabled: true
+
+- name: Configure DataDog HTTP check
+  hosts: webservers
+  become: yes
+  tasks:
+    - name: Deploy Datadog http_check config
+      template:
+        src: templates/http_check.yaml.j2
+        dest: /etc/datadog-agent/conf.d/http_check.d/conf.yaml
+      notify: Restart Datadog Agent
+
+  handlers:
+    - name: Restart Datadog Agent
+      service:
+        name: datadog-agent
+        state: restarted

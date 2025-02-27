@@ -1,0 +1,9 @@
+init_config:
+
+instances:
+  - name: Redmine Health Check
+    url: http://localhost:3000
+    timeout: 5
+    method: GET
+    tags:
+      - app:redmine
