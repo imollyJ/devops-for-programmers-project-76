@@ -1,299 +1,0 @@
-[34m
-* Datadog Agent install script v1.36.0
-[0m
-/usr/bin/systemctl
-[34m
-* Installing curl gnupg
-[0m
-Hit:1 http://deb.debian.org/debian buster InRelease
-Hit:2 https://download.docker.com/linux/debian bookworm InRelease
-Hit:3 http://http.kali.org/kali kali-rolling InRelease
-Reading package lists...
-Reading package lists...
-Building dependency tree...
-Reading state information...
-The following packages were automatically installed and are no longer required:
-  containerd criu cython3 debtags distro-info-data docker-buildx-plugin
-  docker-cli docker-compose-plugin docker.io fonts-noto-color-emoji gdal-data
-  gdal-plugins kali-debtags libadwaita-1-0 libappstream5 libarmadillo12
-  libarpack2 libatk-adaptor libboost-dev libboost1.74-dev libcfitsio10
-  libcompel1 libfcgi-bin libfreexl1 libfyba0 libgeos-c1v5 libgeos3.12.1
-  libgeotiff5 libhdf4-0-alt libhdf5-hl-100 libhiredis0.14 libintl-perl
-  libintl-xs-perl libjavascriptcoregtk-4.0-18 libkmlbase1 libkmldom1
-  libkmlengine1 libmodule-find-perl libnetcdf19 libnsl-dev libodbcinst2
-  libogdi4.1 libopenblas-dev libopenblas-pthread-dev libopenblas0 libperl5.36
-  libproc-processtable-perl libproj25 libpython3-all-dev libpython3.12
-  libpython3.12-dev libqt5multimedia5 libqt5multimedia5-plugins
-  libqt5multimediagsttools5 libqt5multimediawidgets5 libregexp-assemble-perl
-  librtlsdr0 librttopo1 libslirp0 libsort-naturally-perl libspatialite8
-  libstemmer0d libsuperlu6 libtirpc-dev libucl1 libwebkit2gtk-4.0-37
-  libxerces-c3.2 libxmlb2 libxsimd-dev libzxing2 needrestart perl-modules-5.36
-  pigz proj-bin proj-data python-apt-common python3-all-dev python3-anyjson
-  python3-apt python3-backcall python3-beniget python3-cached-property
-  python3-debian python3-docker python3-dockerpty python3-future python3-gast
-  python3-pickleshare python3-pyatspi python3-pycriu python3-pythran
-  python3-requests-toolbelt python3-rfc3986 python3-texttable
-  python3-unicodecsv python3.12-dev runc slirp4netns tini unixodbc-common
-  xtl-dev zenity zenity-common
-Use 'sudo apt autoremove' to remove them.
-The following additional packages will be installed:
-  bsd-mailx dirmngr exim4-base exim4-config exim4-daemon-light gnupg-l10n
-  gnupg-utils gpg gpg-agent gpg-wks-client gpg-wks-server gpgconf gpgsm gpgv
-  ldap-utils libassuan9 libcurl3t64-gnutls libgcrypt20 libgpg-error0
-  libldap-common libldap2 liblockfile-bin liblockfile1 libnpth0t64
-Suggested packages:
-  tor exim4-doc-html | exim4-doc-info eximon4 spf-tools-perl parcimonie
-  xloadimage scdaemon libsasl2-modules-gssapi-mit
-  | libsasl2-modules-gssapi-heimdal rng-tools
-Recommended packages:
-  libgpg-error-l10n
-The following packages will be REMOVED:
-  libnpth0
-The following NEW packages will be installed:
-  bsd-mailx exim4-base exim4-config exim4-daemon-light libassuan9 libldap2
-  liblockfile1 libnpth0t64
-The following packages will be upgraded:
-  curl dirmngr gnupg gnupg-l10n gnupg-utils gpg gpg-agent gpg-wks-client
-  gpg-wks-server gpgconf gpgsm gpgv ldap-utils libcurl3t64-gnutls libgcrypt20
-  libgpg-error0 libldap-common liblockfile-bin
-18 upgraded, 8 newly installed, 1 to remove and 2002 not upgraded.
-Need to get 2074 kB/7672 kB of archives.
-After this operation, 1333 kB of additional disk space will be used.
-Get:1 http://kali.download/kali kali-rolling/main amd64 libgcrypt20 amd64 1.11.0-7 [843 kB]
-Get:3 http://mirror.truenetwork.ru/kali kali-rolling/main amd64 bsd-mailx amd64 8.1.2-0.20220412cvs-1 [90.4 kB]
-Get:2 http://http.kali.org/kali kali-rolling/main amd64 exim4-base amd64 4.98-3+b1 [1140 kB]
-Preconfiguring packages ...
-Fetched 2074 kB in 23s (89.7 kB/s)
-(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 425180 files and directories currently installed.)
-Preparing to unpack .../0-gpg-wks-client_2.2.46-1+b1_amd64.deb ...
-Unpacking gpg-wks-client (2.2.46-1+b1) over (2.2.40-1.1) ...
-Preparing to unpack .../1-dirmngr_2.2.46-1+b1_amd64.deb ...
-Unpacking dirmngr (2.2.46-1+b1) over (2.2.40-1.1) ...
-Preparing to unpack .../2-gpgsm_2.2.46-1+b1_amd64.deb ...
-Unpacking gpgsm (2.2.46-1+b1) over (2.2.40-1.1) ...
-Preparing to unpack .../3-gpg-wks-server_2.2.46-1+b1_amd64.deb ...
-Unpacking gpg-wks-server (2.2.46-1+b1) over (2.2.40-1.1) ...
-Preparing to unpack .../4-gpg_2.2.46-1+b1_amd64.deb ...
-Unpacking gpg (2.2.46-1+b1) over (2.2.40-1.1) ...
-Preparing to unpack .../5-gpgconf_2.2.46-1+b1_amd64.deb ...
-Unpacking gpgconf (2.2.46-1+b1) over (2.2.40-1.1) ...
-Preparing to unpack .../6-gnupg-utils_2.2.46-1+b1_amd64.deb ...
-Unpacking gnupg-utils (2.2.46-1+b1) over (2.2.40-1.1+b1) ...
-Preparing to unpack .../7-gnupg-l10n_2.2.46-1_all.deb ...
-Unpacking gnupg-l10n (2.2.46-1) over (2.2.40-1.1) ...
-Preparing to unpack .../8-gnupg_2.2.46-1_all.deb ...
-Unpacking gnupg (2.2.46-1) over (2.2.40-1.1) ...
-Preparing to unpack .../9-gpg-agent_2.2.46-1+b1_amd64.deb ...
-Unpacking gpg-agent (2.2.46-1+b1) over (2.2.40-1.1) ...
-(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 425188 files and directories currently installed.)
-Removing libnpth0:amd64 (1.6-3+b1) ...
-Selecting previously unselected package libnpth0t64:amd64.
-(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 425181 files and directories currently installed.)
-Preparing to unpack .../libnpth0t64_1.8-2_amd64.deb ...
-Unpacking libnpth0t64:amd64 (1.8-2) ...
-Preparing to unpack .../libgpg-error0_1.51-3_amd64.deb ...
-Unpacking libgpg-error0:amd64 (1.51-3) over (1.47-3+b1) ...
-Setting up libgpg-error0:amd64 (1.51-3) ...
-(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 425187 files and directories currently installed.)
-Preparing to unpack .../libgcrypt20_1.11.0-7_amd64.deb ...
-Unpacking libgcrypt20:amd64 (1.11.0-7) over (1.10.3-2+b1) ...
-Setting up libgcrypt20:amd64 (1.11.0-7) ...
-Selecting previously unselected package libassuan9:amd64.
-(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 425186 files and directories currently installed.)
-Preparing to unpack .../0-libassuan9_3.0.1-2_amd64.deb ...
-Unpacking libassuan9:amd64 (3.0.1-2) ...
-Selecting previously unselected package exim4-config.
-Preparing to unpack .../1-exim4-config_4.98-3_all.deb ...
-Unpacking exim4-config (4.98-3) ...
-Selecting previously unselected package exim4-base.
-Preparing to unpack .../2-exim4-base_4.98-3+b1_amd64.deb ...
-Unpacking exim4-base (4.98-3+b1) ...
-Selecting previously unselected package exim4-daemon-light.
-Preparing to unpack .../3-exim4-daemon-light_4.98-3+b1_amd64.deb ...
-Unpacking exim4-daemon-light (4.98-3+b1) ...
-Selecting previously unselected package libldap2:amd64.
-Preparing to unpack .../4-libldap2_2.6.9+dfsg-1_amd64.deb ...
-Unpacking libldap2:amd64 (2.6.9+dfsg-1) ...
-Preparing to unpack .../5-gpgv_2.2.46-1+b1_amd64.deb ...
-Unpacking gpgv (2.2.46-1+b1) over (2.2.40-1.1+b1) ...
-Setting up gpgv (2.2.46-1+b1) ...
-(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 425400 files and directories currently installed.)
-Preparing to unpack .../0-liblockfile-bin_1.17-2_amd64.deb ...
-Unpacking liblockfile-bin (1.17-2) over (1.17-1+b1) ...
-Selecting previously unselected package liblockfile1:amd64.
-Preparing to unpack .../1-liblockfile1_1.17-2_amd64.deb ...
-Unpacking liblockfile1:amd64 (1.17-2) ...
-Selecting previously unselected package bsd-mailx.
-Preparing to unpack .../2-bsd-mailx_8.1.2-0.20220412cvs-1_amd64.deb ...
-Unpacking bsd-mailx (8.1.2-0.20220412cvs-1) ...
-Preparing to unpack .../3-curl_8.12.1-2_amd64.deb ...
-Unpacking curl (8.12.1-2) over (8.11.1-1) ...
-Preparing to unpack .../4-libcurl3t64-gnutls_8.12.1-2_amd64.deb ...
-Unpacking libcurl3t64-gnutls:amd64 (8.12.1-2) over (8.11.1-1) ...
-Preparing to unpack .../5-ldap-utils_2.6.9+dfsg-1_amd64.deb ...
-Unpacking ldap-utils (2.6.9+dfsg-1) over (2.5.13+dfsg-5+b3) ...
-Preparing to unpack .../6-libldap-common_2.6.9+dfsg-1_all.deb ...
-Unpacking libldap-common (2.6.9+dfsg-1) over (2.5.13+dfsg-5) ...
-Setting up libnpth0t64:amd64 (1.8-2) ...
-Setting up liblockfile-bin (1.17-2) ...
-Setting up libldap-common (2.6.9+dfsg-1) ...
-Installing new version of config file /etc/ldap/ldap.conf ...
-Setting up gnupg-l10n (2.2.46-1) ...
-Setting up exim4-config (4.98-3) ...
-Adding system-user for exim (v4)
-Setting up libassuan9:amd64 (3.0.1-2) ...
-Setting up gpgconf (2.2.46-1+b1) ...
-Setting up liblockfile1:amd64 (1.17-2) ...
-Setting up libldap2:amd64 (2.6.9+dfsg-1) ...
-Setting up gpg (2.2.46-1+b1) ...
-Setting up gnupg-utils (2.2.46-1+b1) ...
-Setting up exim4-base (4.98-3+b1) ...
-exim: DB upgrade, deleting hints-db
-update-rc.d: As per Kali policy, exim4 init script is left disabled.
-Created symlink '/etc/systemd/system/timers.target.wants/exim4-base.timer' → '/usr/lib/systemd/system/exim4-base.timer'.
-exim4-base.service is a disabled or a static unit, not starting it.
-Setting up gpg-agent (2.2.46-1+b1) ...
-Installing new version of config file /etc/X11/Xsession.d/90gpg-agent ...
-Setting up gpgsm (2.2.46-1+b1) ...
-Setting up libcurl3t64-gnutls:amd64 (8.12.1-2) ...
-Setting up ldap-utils (2.6.9+dfsg-1) ...
-Setting up dirmngr (2.2.46-1+b1) ...
-Setting up gnupg (2.2.46-1) ...
-Setting up curl (8.12.1-2) ...
-Setting up exim4-daemon-light (4.98-3+b1) ...
-exim4.service is a disabled or a static unit, not starting it.
-Setting up gpg-wks-client (2.2.46-1+b1) ...
-Setting up bsd-mailx (8.1.2-0.20220412cvs-1) ...
-update-alternatives: using /usr/bin/bsd-mailx to provide /usr/bin/mailx (mailx) in auto mode
-Setting up gpg-wks-server (2.2.46-1+b1) ...
-Processing triggers for doc-base (0.11.2) ...
-Processing 3 added doc-base files...
-Processing triggers for libc-bin (2.40-3) ...
-Processing triggers for man-db (2.12.0-3) ...
-Processing triggers for kali-menu (2023.4.7) ...
-
-Running kernel seems to be up-to-date.
-
-Services to be restarted:
- systemctl restart udisks2.service
-
-Service restarts being deferred:
- systemctl restart NetworkManager.service
- systemctl restart lightdm.service
-
-No containers need to be restarted.
-
-User sessions running outdated binaries:
- mollyj @ session #2: xfce4-session[1169]
- mollyj @ user manager service: gvfsd[1310], systemd[1127]
-
-No VM guests are running outdated hypervisor (qemu) binaries on this host.
-[34m
-* Installing APT package sources for Datadog
-[0m
-gpg: directory '/root/.gnupg' created
-gpg: /root/.gnupg/trustdb.gpg: trustdb created
-gpg: key E6266D4AC0962C7D: public key "Datadog, Inc. APT key (2023-04-20) (APT key) <package+aptkey@datadoghq.com>" imported
-gpg: Total number processed: 1
-gpg:               imported: 1
-gpg: key 0D826EB906462314: public key "Datadog, Inc. APT key (2024-05-15) (APT key) <package+aptkey@datadoghq.com>" imported
-gpg: Total number processed: 1
-gpg:               imported: 1
-gpg: key E6266D4AC0962C7D: "Datadog, Inc. APT key (2023-04-20) (APT key) <package+aptkey@datadoghq.com>" not changed
-gpg: Total number processed: 1
-gpg:              unchanged: 1
-gpg: key 32637D44F14F620E: public key "Datadog, Inc. Master key (2020-09-08) <package+masterkey@datadoghq.com>" imported
-gpg: Total number processed: 1
-gpg:               imported: 1
-gpg: key D3A80E30382E94DE: public key "Datadog, Inc <package@datadoghq.com>" imported
-gpg: Total number processed: 1
-gpg:               imported: 1
-Ign:1 https://apt.datadoghq.com stable InRelease
-Get:2 https://apt.datadoghq.com stable Release [26.0 kB]
-Get:3 https://apt.datadoghq.com stable Release.gpg [801 B]
-Get:4 https://apt.datadoghq.com stable/7 amd64 Packages [93.6 kB]
-Get:5 https://apt.datadoghq.com stable/7 all Packages [1184 B]
-Fetched 122 kB in 11s (10.9 kB/s)
-Reading package lists...
-  [33mInstalling package(s): datadog-agent datadog-signing-keys
-[0m
-Reading package lists...
-Building dependency tree...
-Reading state information...
-The following packages were automatically installed and are no longer required:
-  containerd criu cython3 debtags distro-info-data docker-buildx-plugin
-  docker-cli docker-compose-plugin docker.io fonts-noto-color-emoji gdal-data
-  gdal-plugins kali-debtags libadwaita-1-0 libappstream5 libarmadillo12
-  libarpack2 libatk-adaptor libboost-dev libboost1.74-dev libcfitsio10
-  libcompel1 libfcgi-bin libfreexl1 libfyba0 libgeos-c1v5 libgeos3.12.1
-  libgeotiff5 libhdf4-0-alt libhdf5-hl-100 libhiredis0.14 libintl-perl
-  libintl-xs-perl libjavascriptcoregtk-4.0-18 libkmlbase1 libkmldom1
-  libkmlengine1 libmodule-find-perl libnetcdf19 libnsl-dev libodbcinst2
-  libogdi4.1 libopenblas-dev libopenblas-pthread-dev libopenblas0 libperl5.36
-  libproc-processtable-perl libproj25 libpython3-all-dev libpython3.12
-  libpython3.12-dev libqt5multimedia5 libqt5multimedia5-plugins
-  libqt5multimediagsttools5 libqt5multimediawidgets5 libregexp-assemble-perl
-  librtlsdr0 librttopo1 libslirp0 libsort-naturally-perl libspatialite8
-  libstemmer0d libsuperlu6 libtirpc-dev libucl1 libwebkit2gtk-4.0-37
-  libxerces-c3.2 libxmlb2 libxsimd-dev libzxing2 needrestart perl-modules-5.36
-  pigz proj-bin proj-data python-apt-common python3-all-dev python3-anyjson
-  python3-apt python3-backcall python3-beniget python3-cached-property
-  python3-debian python3-docker python3-dockerpty python3-future python3-gast
-  python3-pickleshare python3-pyatspi python3-pycriu python3-pythran
-  python3-requests-toolbelt python3-rfc3986 python3-texttable
-  python3-unicodecsv python3.12-dev runc slirp4netns tini unixodbc-common
-  xtl-dev zenity zenity-common
-Use 'sudo apt autoremove' to remove them.
-The following NEW packages will be installed:
-  datadog-agent datadog-signing-keys
-0 upgraded, 2 newly installed, 0 to remove and 2002 not upgraded.
-Need to get 206 MB of archives.
-After this operation, 934 MB of additional disk space will be used.
-Get:1 https://apt.datadoghq.com stable/7 amd64 datadog-agent amd64 1:7.63.1-1 [206 MB]
-Get:2 https://apt.datadoghq.com stable/7 amd64 datadog-signing-keys all 1:1.4.0-1 [23.7 kB]
-Fetched 206 MB in 4min 20s (793 kB/s)
-Selecting previously unselected package datadog-agent.
-(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 425418 files and directories currently installed.)
-Preparing to unpack .../datadog-agent_1%3a7.63.1-1_amd64.deb ...
-find: ‘/opt/datadog-agent/embedded/share/system-probe/ebpf/co-re/btf’: No such file or directory
-find: ‘/opt/datadog-agent/embedded/share/system-probe/ebpf/co-re’: No such file or directory
-Unpacking datadog-agent (1:7.63.1-1) ...
-Selecting previously unselected package datadog-signing-keys.
-Preparing to unpack .../datadog-signing-keys_1%3a1.4.0-1_all.deb ...
-Unpacking datadog-signing-keys (1:1.4.0-1) ...
-Setting up datadog-agent (1:7.63.1-1) ...
-Creating dd-agent group
-Creating dd-agent user
-Enabling service datadog-agent
-Created symlink '/etc/systemd/system/multi-user.target.wants/datadog-agent.service' → '/usr/lib/systemd/system/datadog-agent.service'.
-Created symlink '/etc/systemd/system/multi-user.target.wants/datadog-agent-process.service' → '/usr/lib/systemd/system/datadog-agent-process.service'.
-Created symlink '/etc/systemd/system/multi-user.target.wants/datadog-agent-trace.service' → '/usr/lib/systemd/system/datadog-agent-trace.service'.
-Created symlink '/etc/systemd/system/multi-user.target.wants/datadog-agent-security.service' → '/usr/lib/systemd/system/datadog-agent-security.service'.
-No datadog.yaml file detected, not starting the agent
-Creating file: '/opt/datadog-agent/.post_python_installed_packages.txt'
-File '/opt/datadog-agent/.install_python_third_party_deps' not found: no third party integration will be installed.
-Setting up datadog-signing-keys (1:1.4.0-1) ...
-Processing triggers for kali-menu (2023.4.7) ...
-W: --force-yes is deprecated, use one of the options starting with --allow instead.
-[34m
-* Adding your API key to the Datadog Agent configuration: /etc/datadog-agent/datadog.yaml
-[0m
-/usr/bin/systemctl
-[34m* Starting the Datadog Agent...
-[0m
-[32m  Your Datadog Agent is running and functioning properly.
-[0m[32m  It will continue to run in the background and submit metrics to Datadog.
-[0m[32m  If you ever want to stop the Datadog Agent, run:
-
-      sudo systemctl stop datadog-agent
-
-  And to run it again run:
-
-      sudo systemctl start datadog-agent[0m
-
-[32m  Consider adding dd-agent to the docker group to enable the docker support, run:
-
-      sudo usermod -a -G docker dd-agent[0m
-
-curl: (22) The requested URL returned error: 403
-Unable to send telemetry
