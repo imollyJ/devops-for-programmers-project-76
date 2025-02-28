@@ -2,7 +2,7 @@ roles:
   - name: geerlingguy.pip
     version: 3.1.0
   - name: datadog.datadog
-    version: 7.63.1
+    version: 4.22.0
 
 collections:
   - name: ansible.posix
