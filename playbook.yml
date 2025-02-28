@@ -27,9 +27,10 @@
       tags: deploy
 
     - name: Create .env file from template
-      template:
+      ansible.builtin.template:
         src: templates/redmine.env.j2
-        mode: '0600'
+        dest: .env
+        mode: '644'
       tags: deploy
 
     - name: Pull redmine Docker image
@@ -45,7 +46,7 @@
         restart_policy: unless-stopped
         ports:
           - "3000:3000"
-        env_file: "/home/{{ ansible_user }}/redmine/.env"
+        env_file: .env
         state: started
       tags: deploy
 
