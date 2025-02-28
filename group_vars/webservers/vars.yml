@@ -3,3 +3,5 @@ redmine_db_user: "redmine_user"
 redmine_db_password: "{{ vault_redmine_db_password }}"
 redmine_db_name: "redmine_db"
 redmine_db_port: "6432"
+
+datadog_api_key: "{{ datadog_api_key }}"

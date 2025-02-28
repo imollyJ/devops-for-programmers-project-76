@@ -1,10 +1,9 @@
 roles:
   - name: geerlingguy.pip
     version: 3.1.0
+  - name: datadog.datadog
+    version: 4.22.0
 
 collections:
   - name: ansible.posix
     version: 1.5.2
-  - name: datadog.datadog
-    type: git
-    source: https://github.com/DataDog/ansible-datadog.git
