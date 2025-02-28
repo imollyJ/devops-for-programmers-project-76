@@ -6,10 +6,13 @@
     - name: Install dependencies via Galaxy roles
       import_role:
         name: geerlingguy.pip
+      tags: setup
+
     - name: Install docker pip module
       pip:
         name: docker
         state: present
+      tags: setup
 
 - name: Deploy Redmine application
   hosts: all
@@ -23,6 +26,7 @@
         owner: "{{ ansible_user }}"
         group: "{{ ansible_user }}"
         mode: '0755'
+      tags: deploy
 
     - name: Create .env file from template
       template:
@@ -31,11 +35,13 @@
         owner: "{{ ansible_user }}"
         group: "{{ ansible_user }}"
         mode: '0600'
+      tags: deploy
 
     - name: Pull redmine Docker image
       docker_image:
         name: redmine
         source: pull
+      tags: deploy
 
     - name: Run Redmine container
       docker_container:
@@ -46,12 +52,14 @@
           - "3000:3000"
         env_file: "/home/{{ ansible_user }}/redmine/.env"
         state: started
+      tags: deploy
 
 - name: Install and start DataDog Agent
   hosts: webservers
   become: yes
   roles:
     - { role: datadog.datadog, become: yes }
+  tags: monitoring
 
 - name: Configure DataDog HTTP check
   hosts: webservers
@@ -62,9 +70,11 @@
         src: templates/http_check.yaml.j2
         dest: /etc/datadog-agent/conf.d/http_check.d/conf.yaml
       notify: Restart Datadog Agent
+      tags: monitoring
 
   handlers:
     - name: Restart Datadog Agent
       service:
         name: datadog-agent
         state: restarted
+      tags: monitoring
