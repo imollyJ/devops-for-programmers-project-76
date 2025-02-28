@@ -61,20 +61,3 @@
     - { role: datadog.datadog, become: yes }
   tags: monitoring
 
-- name: Configure DataDog HTTP check
-  hosts: webservers
-  become: yes
-  tasks:
-    - name: Deploy Datadog http_check config
-      template:
-        src: templates/http_check.yaml.j2
-        dest: /etc/datadog-agent/conf.d/http_check.d/conf.yaml
-      notify: Restart Datadog Agent
-      tags: monitoring
-
-  handlers:
-    - name: Restart Datadog Agent
-      service:
-        name: datadog-agent
-        state: restarted
-      tags: monitoring

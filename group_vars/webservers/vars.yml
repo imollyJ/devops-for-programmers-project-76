@@ -5,3 +5,17 @@ redmine_db_name: "redmine_db"
 redmine_db_port: "6432"
 
 datadog_api_key: "{{ datadog_api_key }}"
+
+datadog_site: "datadoghq.eu"
+datadog_apm_instrumentation_enabled: "all"
+datadog_checks:
+  http_check:
+    init_config:
+    instances:
+      - name: check my site
+        url: http://localhost
+        timeout: 5
+        tags:
+          - "env:production"
+          - "app:redmine"
+
