@@ -26,6 +26,8 @@
 #### Установка коллекций Ansible:
 ```sh
 ansible-galaxy collection install -r requirements.yml
+OR
+make prepare
 ```
 
 #### Настройка хостов (`hosts.yml`)
@@ -42,11 +44,15 @@ all:
 #### Шифрование секретов
 ```sh
 ansible-vault encrypt group_vars/webservers/vault.yml
+OR
+make secret
 ```
 
 ### 3️⃣ Запуск плейбука
 ```sh
 ansible-playbook -i hosts.yml playbook.yml --vault-password-file vault-pass.txt
+OR
+make vault-pass
 ```
 
 ---
